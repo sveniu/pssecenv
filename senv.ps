@@ -9,7 +9,7 @@
 /randRange {1 index sub rand 1000001 mod 1000000 div mul add} bind def
 /randInteger {rand exch mod} bind def
 
-/Density 10000 def %TODO: Use some sort of area-independent density instead
+/Density 100 def
 /MinSize 8 def
 /MaxSize 14 def
 /MaxRotation 8 def
@@ -18,7 +18,7 @@ realtime srand
 
 /Alphabet (abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^&*()_+?[]{}) def
 
-0 1 Density {
+0 1 paperWidth paperHeight mul Density mul {
   /Courier findfont
   MinSize MaxSize randRange cvi scalefont
   setfont
