@@ -16,10 +16,46 @@
 
 realtime srand
 
+/allFonts [ [
+/AvantGarde-Book
+/AvantGarde-BookOblique
+/AvantGarde-Demi
+/AvantGarde-DemiOblique
+/Bookman-Demi
+/Bookman-DemiItalic
+/Bookman-Light
+/Bookman-LightItalic
+/Courier-Bold
+/Courier-BoldOblique
+/Courier
+/Courier-Oblique
+/Helvetica-Bold
+/Helvetica-BoldOblique
+/Helvetica-NarrowBold
+/Helvetica-NarrowBoldOblique
+/Helvetica
+/Helvetica-Oblique
+/Helvetica-Narrow
+/Helvetica-NarrowOblique
+/NewCenturySchlbk-Bold
+/NewCenturySchlbk-BoldItalic
+/NewCenturySchlbk-Italic
+/NewCenturySchlbk-Roman
+/Palatino-Bold
+/Palatino-BoldItalic
+/Palatino-Italic
+/Palatino-Roman
+/Times-Bold
+/Times-BoldItalic
+/Times-Italic
+/Times-Roman
+] {findfont} forall] def
+/nFonts allFonts length def
+
 /Alphabet (abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^&*()_+?[]{}) def
 
 0 1 paperWidth paperHeight mul Density mul {
-  /Courier findfont
+  allFonts nFonts randInteger get
   MinSize MaxSize randRange cvi scalefont
   setfont
   0 72 paperWidth mul randRange 0 72 paperHeight mul randRange moveto
