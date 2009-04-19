@@ -1,0 +1,32 @@
+%!PS
+
+/paperWidth 8.26771654 def   % A4
+/paperHeight 11.6929134 def  % A4
+%/paperWidth 8.5 def          % US Letter
+%/paperHeight 11 def          % US Letter
+
+% From ransom_note.pdf
+/randRange {1 index sub rand 1000001 mod 1000000 div mul add} bind def
+/randInteger {rand exch mod} bind def
+
+/Density 10000 def %TODO: Use some sort of area-independent density instead
+/MinSize 8 def
+/MaxSize 14 def
+/MaxRotation 8 def
+
+realtime srand
+
+/Alphabet (abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^&*()_+?[]{}) def
+
+0 1 Density {
+  /Courier findfont
+  MinSize MaxSize randRange cvi scalefont
+  setfont
+  0 72 paperWidth mul randRange 0 72 paperHeight mul randRange moveto
+  Alphabet Alphabet length randInteger 1 getinterval
+  gsave
+    MaxRotation neg MaxRotation randRange rotate
+    show
+  grestore
+} for
+
