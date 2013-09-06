@@ -1,0 +1,9 @@
+A PostScript security envelope generator.
+
+Produce a full page or random letters of random font and font size,
+with a specific density. This is more a proof of concept rather than
+an actual security feature; a security envelope should be better tuned
+to the contents of the envelope itself, including similar fonts and
+font sizes, and an appropriate density.
+
+See the source to modify paper size and letter density.
